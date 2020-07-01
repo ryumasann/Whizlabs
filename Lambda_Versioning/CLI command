@@ -1,0 +1,15 @@
+aws lambda create-function --function-name lambdaclidemo --runtime python3.7 --zip-file fileb://s3bucket.zip --handler s3bucket.handler --role arn:aws:iam::516268792174:role/Lamdaversion_Role
+
+aws lambda update-function-configuration  --function-name lambdaclidemo --timeout 15
+
+aws lambda invoke --function-name lambdaclidemo --invocation-type RequestResponse  outputfile.txt
+
+aws lambda publish-version --function-name lambdaclidemo
+
+aws lambda update-function-code --function-name lambdaclidemo --zip-file fileb://s3bucket.zip
+
+aws lambda invoke --function-name lambdaclidemo --invocation-type RequestResponse  outputfile.txt
+
+aws lambda create-alias --function-name lambdaclidemo --description "sample alias for lambda" --function-version 1 --name DEV
+
+aws lambda delete-function --function-name lambdaclidemo
