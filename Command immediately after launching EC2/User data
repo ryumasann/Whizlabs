@@ -1,0 +1,9 @@
+#!/bin/bash
+
+yum install httpd24 -y
+
+service httpd start
+
+chkconfig httpd on
+
+echo "RESPONSE COMING FROM SERVER  A" > /var/www/html/index.html

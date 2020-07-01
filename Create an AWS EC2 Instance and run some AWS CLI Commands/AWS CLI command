@@ -1,0 +1,10 @@
+aws ec2 create-key-pair --key-name MyCLIKeyPair --query 'KeyMaterial' --region us-east-1
+
+aws ec2 create-security-group --group-name my-sg --description "My security group" --region us-east-1
+
+The below command will create one t2.micro EC2 instance with Amazon Linux 2 AMI in the us-east-1 region.
+
+aws ec2 run-instances --image-id  ami-062f7200baf2fa504 --count 1 --instance-type t2.micro --key-name MyCLIKeyPair --security-groups my-sg --region us-east-1
+
+aws ec2 terminate-instances --instance-ids i-0dd71b212dbe4afdb --region us-east-1
+
